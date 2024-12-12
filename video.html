@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAMEER</title>
+    <style>
+        /* Style for the title */
+        h1 {
+            text-align: center;
+            font-size: 50px;
+            color: red;
+            animation: zoomInOut 5s ease-in-out infinite, colorChange 5s ease-in-out infinite;
+            margin-bottom: 20px; /* Adds some space below the title */
+        }
+
+        /* Animation for zooming in and out */
+        @keyframes zoomInOut {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.5);
+            }
+        }
+
+        /* Animation for color transition (red to white) */
+        @keyframes colorChange {
+            0%, 100% {
+                color: red;
+            }
+            50% {
+                color: white;
+            }
+        }
+
+        /* Main container to center the content */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Video wrapper container */
+        .video-wrapper {
+            display: flex;
+            justify-content: flex-start; /* Align the video to the left */
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .video-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; 
+            flex-direction: column;
+        }
+
+        /* Styling for images */
+        .video-wrapper img {
+            width: 100px; /* Adjust size of the images */
+            margin: 0 20px;
+        }
+
+        /* Video element styling */
+        video {
+            width: 30%;
+            transform-origin: center;
+            transition: transform 3s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <!-- Title with zoom and color transition -->
+        <h1>SAMEER</h1>
+
+        <!-- Video wrapper with images on the sides -->
+        <div class="video-wrapper" onclick="playVideo();">
+            <!-- Left image -->
+            <img src="https://gifdb.com/images/thumbnail/cute-baby-dance-c0gbxpbz88ba0205.gif" alt="Left Image">
+            
+            <!-- Video container with video -->
+            <div class="video-container">
+                <video id="myVideo" controls>
+                    <!-- Correct Google Drive URL -->
+                    <source src="/fun video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <!-- Right image -->
+            <img src="https://gifdb.com/images/thumbnail/cute-baby-dance-c0gbxpbz88ba0205.gif" alt="Right Image">
+        </div>
+
+        <!-- Title again at the bottom (optional) -->
+        <h1>SAMEER</h1>
+    </div>
+
+    <script>
+        function playVideo() {
+            var video = document.getElementById('myVideo');
+            if (video.paused) {
+                zoomAndRotate(video);
+            }
+        }
+
+        function zoomAndRotate(video) {
+            // Apply zoom in and rotate 360 degrees
+            video.style.transform = 'scale(1.5) rotate(360deg)';
+            
+            // Reset transformation after animation completes (optional)
+            setTimeout(function() {
+                video.style.transform = 'scale(1) rotate(0deg)';
+            }, 10000); // Duration of the animation
+        }
+    </script>
+
+</body>
+</html>
